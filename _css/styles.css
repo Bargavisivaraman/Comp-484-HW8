@@ -1,0 +1,278 @@
+/* ================================================================
+   Color Palette:
+   #1a2e4a  --navy   (header, nav, footer)
+   #2e7d86  --teal   (skills section)
+   #4a7c59  --sage   (education section)
+   #7a4f3a  --warm   (experience section)
+   #f4f1ec  --light  (page / about / projects bg)
+   #ffffff  --white  (cards)
+================================================================ */
+
+:root {
+  --navy:       #1a2e4a;
+  --teal:       #2e7d86;
+  --sage:       #4a7c59;
+  --warm:       #7a4f3a;
+  --light:      #f4f1ec;
+  --white:      #ffffff;
+  --text:       #2c2c2c;
+  --muted:      #555555;
+  --nav-height: 62px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: var(--light);
+  color: var(--text);
+}
+
+h1 {
+  font-family: 'Merriweather', serif;
+  font-weight: 900;
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { padding-left: 20px; }
+li { margin-bottom: 5px; }
+
+section, header, footer {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* ── Inner content wrapper — used in every section ── */
+.section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 64px 40px;
+}
+
+
+/* ================================================================
+   HW8 #1 — Sticky nav, no list tags
+================================================================ */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  background-color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.30);
+}
+
+.nav-brand {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* NO ul or li — just a div with a tags */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  color: #b8cfe8;
+  font-size: 0.80rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 11px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.12);
+  color: #ffffff;
+}
+
+.nav-links a.nav-pdf {
+  background-color: var(--teal);
+  color: #ffffff;
+  margin-left: 10px;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-links a.nav-pdf:hover { background-color: #235f66; }
+
+
+/* ── Header ── */
+header#home {
+  background-color: var(--navy);
+  color: #ffffff;
+  text-align: center;
+  padding: calc(var(--nav-height) + 80px) 40px 80px;
+  min-height: 420px;
+}
+
+.profile-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.3);
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header h1 { color: #ffffff; margin-bottom: 10px; }
+
+.header-subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.15rem;
+  color: #a8c4d8;
+  margin-bottom: 18px;
+  border: none;
+}
+
+.header-contact {
+  font-size: 0.88rem;
+  color: #8aaac0;
+}
+
+
+/* ── About ── */
+#about {
+  background-color: var(--white);
+}
+
+#about h2 {
+  color: var(--navy);
+  border-bottom: 3px solid rgba(0,0,0,0.10);
+  padding-bottom: 10px;
+}
+
+#about p {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+
+/* ── Skills ── */
+#skills {
+  background-color: var(--teal);
+}
+
+#skills h2 {
+  color: #ffffff;
+  border-bottom: 3px solid rgba(255,255,255,0.30);
+  padding-bottom: 10px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 28px;
+}
+
+.skill-group h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #cff0f4;
+  margin-bottom: 10px;
+}
+
+.skill-group ul { list-style: disc; padding-left: 18px; }
+.skill-group li { color: #e4f4f6; font-size: 0.92rem; }
+
+
+/* ================================================================
+   HW8 #3 — Experience: background image + rgba gradient overlay
+================================================================ */
+#experience {
+  background-image:
+    linear-gradient(
+      150deg,
+      rgba(26,  46, 74, 0.88) 0%,
+      rgba(122, 79, 58, 0.82) 55%,
+      rgba(26,  46, 74, 0.90) 100%
+    ),
+    url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+#experience h2 {
+  color: #ffffff;
+  border-bottom: 3px solid rgba(255,255,255,0.30);
+  padding-bottom: 10px;
+}
+
+.job {
+  background-color: rgba(255,255,255,0.08);
+  border-left: 4px solid rgba(255,255,255,0.55);
+  padding: 22px 26px;
+  margin-bottom: 22px;
+  border-radius: 3px;
+}
+
+.job:last-child { margin-bottom: 0; }
+.job:hover { background-color: rgba(255,255,255,0.13); }
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.job-title-block h3 { color: #ffffff; font-size: 1.05rem; }
+
+.job-company {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #f0cdb8;
+  margin-top: 2px;
+}
+
+.job-date {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: #f0d
